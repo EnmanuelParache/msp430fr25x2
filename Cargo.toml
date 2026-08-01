@@ -1,0 +1,18 @@
+[package]
+name = "msp430fr2522"
+version = "0.2.0"
+edition = "2021"
+
+[dependencies]
+critical-section = { version = "1.0", optional = true }
+msp430 = "0.4.0"
+msp430-rt = { version = "0.4.0", optional = true }
+vcell = "0.1.0"
+
+[features]
+rt = ["msp430-rt/device"]
+
+[lib]
+name = "msp430fr2522"
+test = false
+bench = false
