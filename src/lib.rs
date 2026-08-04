@@ -40,7 +40,8 @@ pub union Vector {
 #[link_section = ".vector_table.interrupts"]
 #[no_mangle]
 #[used]
-pub static __INTERRUPTS: [Vector; 58] = [
+pub static __INTERRUPTS: [Vector; 59] = [
+    Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
