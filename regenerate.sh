@@ -1,5 +1,5 @@
 #!/bin/bash
-# svd files generated useding msp430_svd:
+# svd files generated using msp430_svd:
 # cargo run -- msp430fr2522
 
 svd2rust --reexport-interrupt --atomics -g --target=msp430 -i msp430fr2522.svd
