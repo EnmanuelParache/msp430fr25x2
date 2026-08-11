@@ -40,7 +40,11 @@ pub union Vector {
 #[link_section = ".vector_table.interrupts"]
 #[no_mangle]
 #[used]
-pub static __INTERRUPTS: [Vector; 59] = [
+pub static __INTERRUPTS: [Vector; 63] = [
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
+    Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
     Vector { _reserved: 0 },
@@ -115,34 +119,34 @@ pub static __INTERRUPTS: [Vector; 59] = [
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum Interrupt {
-    #[doc = "44 - 0xFFE2"]
-    CAPTIVATE = 44,
-    #[doc = "45 - 0xFFE4"]
-    PORT2 = 45,
-    #[doc = "46 - 0xFFE6"]
-    PORT1 = 46,
-    #[doc = "47 - 0xFFE8"]
-    ADC = 47,
-    #[doc = "48 - 0xFFEA"]
-    EUSCI_B0 = 48,
-    #[doc = "49 - 0xFFEC"]
-    EUSCI_A0 = 49,
-    #[doc = "50 - 0xFFEE"]
-    WDT = 50,
-    #[doc = "51 - 0xFFF0"]
-    RTC = 51,
-    #[doc = "52 - 0xFFF2"]
-    TIMER1_A1 = 52,
-    #[doc = "53 - 0xFFF4"]
-    TIMER1_A0 = 53,
-    #[doc = "54 - 0xFFF6"]
-    TIMER0_A1 = 54,
-    #[doc = "55 - 0xFFF8"]
-    TIMER0_A0 = 55,
-    #[doc = "56 - 0xFFFA"]
-    UNMI = 56,
-    #[doc = "57 - 0xFFFC"]
-    SYSNMI = 57,
+    #[doc = "49 - 0xFFE2"]
+    CAPTIVATE = 49,
+    #[doc = "50 - 0xFFE4"]
+    PORT2 = 50,
+    #[doc = "51 - 0xFFE6"]
+    PORT1 = 51,
+    #[doc = "52 - 0xFFE8"]
+    ADC = 52,
+    #[doc = "53 - 0xFFEA"]
+    EUSCI_B0 = 53,
+    #[doc = "54 - 0xFFEC"]
+    EUSCI_A0 = 54,
+    #[doc = "55 - 0xFFEE"]
+    WDT = 55,
+    #[doc = "56 - 0xFFF0"]
+    RTC = 56,
+    #[doc = "57 - 0xFFF2"]
+    TIMER1_A1 = 57,
+    #[doc = "58 - 0xFFF4"]
+    TIMER1_A0 = 58,
+    #[doc = "59 - 0xFFF6"]
+    TIMER0_A1 = 59,
+    #[doc = "60 - 0xFFF8"]
+    TIMER0_A0 = 60,
+    #[doc = "61 - 0xFFFA"]
+    UNMI = 61,
+    #[doc = "62 - 0xFFFC"]
+    SYSNMI = 62,
 }
 #[doc = "P1"]
 pub type P1 = crate::Periph<p1::RegisterBlock, 0x0200>;

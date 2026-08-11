@@ -2,7 +2,7 @@
 <device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
   <vendor>msp430gen</vendor>
   <name>MSP430FR2522</name>
-  <version>v0.4.0-24-gb954137</version>
+  <version>b954137</version>
   <description></description>
   <addressUnitBits>8</addressUnitBits>
   <width>16</width>
@@ -722,7 +722,7 @@
               <bitOffset>8</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
-               <enumeratedValues>
+              <enumeratedValues>
                 <name>PMMPWR</name>
                 <usage>read</usage>
                 <enumeratedValue>
@@ -9153,26 +9153,6 @@
                 </enumeratedValue>
               </enumeratedValues>
             </field>
-            <field>
-              <name>UCBUSY</name>
-              <description>eUSCI_A0 busy</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <name>UCBUSY</name>
-                <enumeratedValue>
-                  <name>IDLE</name>
-                  <description>eUSCI_A0 inactive</description>
-                  <value>0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>BUSY</name>
-                  <description>eUSCI_A0 transmitting or receiving</description>
-                  <value>1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
           </fields>
         </register>
         <register>
@@ -13412,72 +13392,72 @@
       <interrupt>
         <name>CAPTIVATE</name>
         <description>0xFFE2</description>
-        <value>44</value>
+        <value>49</value>
       </interrupt>
       <interrupt>
         <name>PORT2</name>
         <description>0xFFE4</description>
-        <value>45</value>
+        <value>50</value>
       </interrupt>
       <interrupt>
         <name>PORT1</name>
         <description>0xFFE6</description>
-        <value>46</value>
+        <value>51</value>
       </interrupt>
       <interrupt>
         <name>ADC</name>
         <description>0xFFE8</description>
-        <value>47</value>
+        <value>52</value>
       </interrupt>
       <interrupt>
         <name>EUSCI_B0</name>
         <description>0xFFEA</description>
-        <value>48</value>
+        <value>53</value>
       </interrupt>
       <interrupt>
         <name>EUSCI_A0</name>
         <description>0xFFEC</description>
-        <value>49</value>
+        <value>54</value>
       </interrupt>
       <interrupt>
         <name>WDT</name>
         <description>0xFFEE</description>
-        <value>50</value>
+        <value>55</value>
       </interrupt>
       <interrupt>
         <name>RTC</name>
         <description>0xFFF0</description>
-        <value>51</value>
+        <value>56</value>
       </interrupt>
       <interrupt>
         <name>TIMER1_A1</name>
         <description>0xFFF2</description>
-        <value>52</value>
+        <value>57</value>
       </interrupt>
       <interrupt>
         <name>TIMER1_A0</name>
         <description>0xFFF4</description>
-        <value>53</value>
+        <value>58</value>
       </interrupt>
       <interrupt>
         <name>TIMER0_A1</name>
         <description>0xFFF6</description>
-        <value>54</value>
+        <value>59</value>
       </interrupt>
       <interrupt>
         <name>TIMER0_A0</name>
         <description>0xFFF8</description>
-        <value>55</value>
+        <value>60</value>
       </interrupt>
       <interrupt>
         <name>UNMI</name>
         <description>0xFFFA</description>
-        <value>56</value>
+        <value>61</value>
       </interrupt>
       <interrupt>
         <name>SYSNMI</name>
         <description>0xFFFC</description>
-        <value>57</value>
+        <value>62</value>
       </interrupt>
     </peripheral>
   </peripherals>

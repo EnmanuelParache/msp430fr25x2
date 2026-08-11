@@ -5,9 +5,9 @@ pub type W = crate::W<Uca0statwSpec>;
 #[doc = "eUSCI_A busy\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Ucbusy {
-    #[doc = "0: eUSCI_A0 inactive"]
+    #[doc = "0: eUSCI_A inactive"]
     Idle = 0,
-    #[doc = "1: eUSCI_A0 transmitting or receiving"]
+    #[doc = "1: eUSCI_A transmitting or receiving"]
     Busy = 1,
 }
 impl From<Ucbusy> for bool {
@@ -16,7 +16,7 @@ impl From<Ucbusy> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `UCBUSY` reader - eUSCI_A0 busy"]
+#[doc = "Field `UCBUSY` reader - eUSCI_A busy"]
 pub type UcbusyR = crate::BitReader<Ucbusy>;
 impl UcbusyR {
     #[doc = "Get enumerated values variant"]
@@ -27,12 +27,12 @@ impl UcbusyR {
             true => Ucbusy::Busy,
         }
     }
-    #[doc = "eUSCI_A0 inactive"]
+    #[doc = "eUSCI_A inactive"]
     #[inline(always)]
     pub fn is_idle(&self) -> bool {
         *self == Ucbusy::Idle
     }
-    #[doc = "eUSCI_A0 transmitting or receiving"]
+    #[doc = "eUSCI_A transmitting or receiving"]
     #[inline(always)]
     pub fn is_busy(&self) -> bool {
         *self == Ucbusy::Busy
@@ -410,7 +410,7 @@ where
     }
 }
 impl R {
-    #[doc = "Bit 0 - eUSCI_A0 busy"]
+    #[doc = "Bit 0 - eUSCI_A busy"]
     #[inline(always)]
     pub fn ucbusy(&self) -> UcbusyR {
         UcbusyR::new((self.bits & 1) != 0)
