@@ -3,6 +3,7 @@ pub type R = crate::R<Syscfg1Spec>;
 #[doc = "Register `SYSCFG1` writer"]
 pub type W = crate::W<Syscfg1Spec>;
 #[doc = "Infrared enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Iren {
     #[doc = "0: Infrared function disabled"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Infrared polarity select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irpsel {
     #[doc = "0: Normal polarity"]
@@ -109,12 +111,13 @@ where
     }
 }
 #[doc = "Infrared mode select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irmsel {
-    #[doc = "0: FSK mode"]
-    Irmsel0 = 0,
-    #[doc = "1: ASK mode"]
-    Irmsel1 = 1,
+    #[doc = "0: ASK mode"]
+    Ask = 0,
+    #[doc = "1: FSK mode"]
+    Fsk = 1,
 }
 impl From<Irmsel> for bool {
     #[inline(always)]
@@ -129,19 +132,19 @@ impl IrmselR {
     #[inline(always)]
     pub const fn variant(&self) -> Irmsel {
         match self.bits {
-            false => Irmsel::Irmsel0,
-            true => Irmsel::Irmsel1,
+            false => Irmsel::Ask,
+            true => Irmsel::Fsk,
         }
-    }
-    #[doc = "FSK mode"]
-    #[inline(always)]
-    pub fn is_irmsel_0(&self) -> bool {
-        *self == Irmsel::Irmsel0
     }
     #[doc = "ASK mode"]
     #[inline(always)]
-    pub fn is_irmsel_1(&self) -> bool {
-        *self == Irmsel::Irmsel1
+    pub fn is_ask(&self) -> bool {
+        *self == Irmsel::Ask
+    }
+    #[doc = "FSK mode"]
+    #[inline(always)]
+    pub fn is_fsk(&self) -> bool {
+        *self == Irmsel::Fsk
     }
 }
 #[doc = "Field `IRMSEL` writer - Infrared mode select"]
@@ -150,18 +153,19 @@ impl<'a, REG> IrmselW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "FSK mode"]
-    #[inline(always)]
-    pub fn irmsel_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Irmsel::Irmsel0)
-    }
     #[doc = "ASK mode"]
     #[inline(always)]
-    pub fn irmsel_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Irmsel::Irmsel1)
+    pub fn ask(self) -> &'a mut crate::W<REG> {
+        self.variant(Irmsel::Ask)
+    }
+    #[doc = "FSK mode"]
+    #[inline(always)]
+    pub fn fsk(self) -> &'a mut crate::W<REG> {
+        self.variant(Irmsel::Fsk)
     }
 }
 #[doc = "Infrared data source select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irdssel {
     #[doc = "0: From hardware peripherals upon device configuration"]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Infrared data\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Irdata {
     #[doc = "0: Infrared data logic 0"]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "Captivate Conversion triggered Source Selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum Syncsel {

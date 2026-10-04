@@ -1,25 +1,25 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    _reserved_0_capie: [u8; 0x02],
-    _reserved_1_capifg: [u8; 0x02],
-    _reserved_2_capiv: [u8; 0x02],
+    capie: Capie,
+    capifg: Capifg,
+    capiv: Capiv,
 }
 impl RegisterBlock {
     #[doc = "0x00 - Captivate Interrupt Enable Register"]
     #[inline(always)]
     pub const fn capie(&self) -> &Capie {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().cast() }
+        &self.capie
     }
     #[doc = "0x02 - Captivate Interrupt Flag Register"]
     #[inline(always)]
     pub const fn capifg(&self) -> &Capifg {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(2).cast() }
+        &self.capifg
     }
     #[doc = "0x04 - Captivate Interrupt Vector Register"]
     #[inline(always)]
     pub const fn capiv(&self) -> &Capiv {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(4).cast() }
+        &self.capiv
     }
 }
 #[doc = "CAPIE (rw) register accessor: Captivate Interrupt Enable Register\n\nYou can [`read`](crate::Reg::read) this register and get [`capie::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`capie::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@capie`] module"]

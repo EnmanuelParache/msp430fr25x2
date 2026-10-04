@@ -2,7 +2,8 @@
 pub type R = crate::R<CapifgSpec>;
 #[doc = "Register `CAPIFG` writer"]
 pub type W = crate::W<CapifgSpec>;
-#[doc = "End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the Captivate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine.\n\nValue on reset: 0"]
+#[doc = "End of conversion interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eocifg {
     #[doc = "0: No end of conversion has occurred"]
@@ -16,7 +17,7 @@ impl From<Eocifg> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EOCIFG` reader - End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the Captivate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine."]
+#[doc = "Field `EOCIFG` reader - End of conversion interrupt flag"]
 pub type EocifgR = crate::BitReader<Eocifg>;
 impl EocifgR {
     #[doc = "Get enumerated values variant"]
@@ -38,7 +39,7 @@ impl EocifgR {
         *self == Eocifg::Eocifg1
     }
 }
-#[doc = "Field `EOCIFG` writer - End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the Captivate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine."]
+#[doc = "Field `EOCIFG` writer - End of conversion interrupt flag"]
 pub type EocifgW<'a, REG> = crate::BitWriter<'a, REG, Eocifg>;
 impl<'a, REG> EocifgW<'a, REG>
 where
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Captivate detection interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capdtctifg {
     #[doc = "0: No interrupt pending"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Captivate timer interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Captifg {
     #[doc = "0: No interrupt pending"]
@@ -161,7 +164,8 @@ where
         self.variant(Captifg::Captifg1)
     }
 }
-#[doc = "specified number of conversion have been reached\n\nValue on reset: 0"]
+#[doc = "Captivate conversion counter interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capcntrifg {
     #[doc = "0: No interrupt pending"]
@@ -175,7 +179,7 @@ impl From<Capcntrifg> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `CAPCNTRIFG` reader - specified number of conversion have been reached"]
+#[doc = "Field `CAPCNTRIFG` reader - Captivate conversion counter interrupt flag"]
 pub type CapcntrifgR = crate::BitReader<Capcntrifg>;
 impl CapcntrifgR {
     #[doc = "Get enumerated values variant"]
@@ -197,7 +201,7 @@ impl CapcntrifgR {
         *self == Capcntrifg::Capcntrifg1
     }
 }
-#[doc = "Field `CAPCNTRIFG` writer - specified number of conversion have been reached"]
+#[doc = "Field `CAPCNTRIFG` writer - Captivate conversion counter interrupt flag"]
 pub type CapcntrifgW<'a, REG> = crate::BitWriter<'a, REG, Capcntrifg>;
 impl<'a, REG> CapcntrifgW<'a, REG>
 where
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Captivate maximum count interrupt flag\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capmaxifg {
     #[doc = "0: Maximum count not reached"]
@@ -268,7 +273,7 @@ where
     }
 }
 impl R {
-    #[doc = "Bit 0 - End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the Captivate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine."]
+    #[doc = "Bit 0 - End of conversion interrupt flag"]
     #[inline(always)]
     pub fn eocifg(&self) -> EocifgR {
         EocifgR::new((self.bits & 1) != 0)
@@ -283,7 +288,7 @@ impl R {
     pub fn captifg(&self) -> CaptifgR {
         CaptifgR::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - specified number of conversion have been reached"]
+    #[doc = "Bit 3 - Captivate conversion counter interrupt flag"]
     #[inline(always)]
     pub fn capcntrifg(&self) -> CapcntrifgR {
         CapcntrifgR::new(((self.bits >> 3) & 1) != 0)
@@ -295,7 +300,7 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the Captivate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine."]
+    #[doc = "Bit 0 - End of conversion interrupt flag"]
     #[inline(always)]
     pub fn eocifg(&mut self) -> EocifgW<'_, CapifgSpec> {
         EocifgW::new(self, 0)
@@ -310,7 +315,7 @@ impl W {
     pub fn captifg(&mut self) -> CaptifgW<'_, CapifgSpec> {
         CaptifgW::new(self, 2)
     }
-    #[doc = "Bit 3 - specified number of conversion have been reached"]
+    #[doc = "Bit 3 - Captivate conversion counter interrupt flag"]
     #[inline(always)]
     pub fn capcntrifg(&mut self) -> CapcntrifgW<'_, CapifgSpec> {
         CapcntrifgW::new(self, 3)

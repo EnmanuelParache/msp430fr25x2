@@ -3,70 +3,71 @@ pub type R = crate::R<Syscfg3Spec>;
 #[doc = "Register `SYSCFG3` writer"]
 pub type W = crate::W<Syscfg3Spec>;
 #[doc = "eUSCIA remapping source selection, please refer to device specific for details\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Usciarmp {
-    #[doc = "0: P1.x is selected, please refer to device specific for details"]
-    Usciarmp0 = 0,
-    #[doc = "1: other port is selected, please refer to device specific for details"]
-    Usciarmp1 = 1,
+pub enum Uscia0rmp {
+    #[doc = "0: Default function. See the device-specific data sheet for details."]
+    Uscia0rmp0 = 0,
+    #[doc = "1: Remapped function. See the device-specific data sheet for details."]
+    Uscia0rmp1 = 1,
 }
-impl From<Usciarmp> for bool {
+impl From<Uscia0rmp> for bool {
     #[inline(always)]
-    fn from(variant: Usciarmp) -> Self {
+    fn from(variant: Uscia0rmp) -> Self {
         variant as u8 != 0
     }
 }
-#[doc = "Field `USCIARMP` reader - eUSCIA remapping source selection, please refer to device specific for details"]
-pub type UsciarmpR = crate::BitReader<Usciarmp>;
-impl UsciarmpR {
+#[doc = "Field `USCIA0RMP` reader - eUSCIA remapping source selection, please refer to device specific for details"]
+pub type Uscia0rmpR = crate::BitReader<Uscia0rmp>;
+impl Uscia0rmpR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Usciarmp {
+    pub const fn variant(&self) -> Uscia0rmp {
         match self.bits {
-            false => Usciarmp::Usciarmp0,
-            true => Usciarmp::Usciarmp1,
+            false => Uscia0rmp::Uscia0rmp0,
+            true => Uscia0rmp::Uscia0rmp1,
         }
     }
-    #[doc = "P1.x is selected, please refer to device specific for details"]
+    #[doc = "Default function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn is_usciarmp_0(&self) -> bool {
-        *self == Usciarmp::Usciarmp0
+    pub fn is_uscia0rmp_0(&self) -> bool {
+        *self == Uscia0rmp::Uscia0rmp0
     }
-    #[doc = "other port is selected, please refer to device specific for details"]
+    #[doc = "Remapped function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn is_usciarmp_1(&self) -> bool {
-        *self == Usciarmp::Usciarmp1
+    pub fn is_uscia0rmp_1(&self) -> bool {
+        *self == Uscia0rmp::Uscia0rmp1
     }
 }
-#[doc = "Field `USCIARMP` writer - eUSCIA remapping source selection, please refer to device specific for details"]
-pub type UsciarmpW<'a, REG> = crate::BitWriter<'a, REG, Usciarmp>;
-impl<'a, REG> UsciarmpW<'a, REG>
+#[doc = "Field `USCIA0RMP` writer - eUSCIA remapping source selection, please refer to device specific for details"]
+pub type Uscia0rmpW<'a, REG> = crate::BitWriter<'a, REG, Uscia0rmp>;
+impl<'a, REG> Uscia0rmpW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "P1.x is selected, please refer to device specific for details"]
+    #[doc = "Default function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn usciarmp_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Usciarmp::Usciarmp0)
+    pub fn uscia0rmp_0(self) -> &'a mut crate::W<REG> {
+        self.variant(Uscia0rmp::Uscia0rmp0)
     }
-    #[doc = "other port is selected, please refer to device specific for details"]
+    #[doc = "Remapped function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn usciarmp_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Usciarmp::Usciarmp1)
+    pub fn uscia0rmp_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Uscia0rmp::Uscia0rmp1)
     }
 }
 impl R {
     #[doc = "Bit 0 - eUSCIA remapping source selection, please refer to device specific for details"]
     #[inline(always)]
-    pub fn usciarmp(&self) -> UsciarmpR {
-        UsciarmpR::new((self.bits & 1) != 0)
+    pub fn uscia0rmp(&self) -> Uscia0rmpR {
+        Uscia0rmpR::new((self.bits & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 0 - eUSCIA remapping source selection, please refer to device specific for details"]
     #[inline(always)]
-    pub fn usciarmp(&mut self) -> UsciarmpW<'_, Syscfg3Spec> {
-        UsciarmpW::new(self, 0)
+    pub fn uscia0rmp(&mut self) -> Uscia0rmpW<'_, Syscfg3Spec> {
+        Uscia0rmpW::new(self, 0)
     }
 }
 #[doc = "System Configuration Register 3\n\nYou can [`read`](crate::Reg::read) this register and get [`syscfg3::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`syscfg3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
