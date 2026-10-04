@@ -2,7 +2,8 @@
 pub type R = crate::R<CapieSpec>;
 #[doc = "Register `CAPIE` writer"]
 pub type W = crate::W<CapieSpec>;
-#[doc = "End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine.\n\nValue on reset: 0"]
+#[doc = "End of conversion interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Eocien {
     #[doc = "0: Interrupt disabled"]
@@ -16,7 +17,7 @@ impl From<Eocien> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EOCIEN` reader - End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine."]
+#[doc = "Field `EOCIEN` reader - End of conversion interrupt enable"]
 pub type EocienR = crate::BitReader<Eocien>;
 impl EocienR {
     #[doc = "Get enumerated values variant"]
@@ -38,7 +39,7 @@ impl EocienR {
         *self == Eocien::Eocien1
     }
 }
-#[doc = "Field `EOCIEN` writer - End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine."]
+#[doc = "Field `EOCIEN` writer - End of conversion interrupt enable"]
 pub type EocienW<'a, REG> = crate::BitWriter<'a, REG, Eocien>;
 impl<'a, REG> EocienW<'a, REG>
 where
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "Captivate detection interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capdtctien {
     #[doc = "0: Interrupt disabled"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "Captivate Timer interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Captien {
     #[doc = "0: Interrupt disabled"]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "Captivate Conversion Counter interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capcntrien {
     #[doc = "0: Interrupt disabled"]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "Captivate maximum count interrupt enable\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Capmaxien {
     #[doc = "0: Interrupt disabled"]
@@ -268,7 +273,7 @@ where
     }
 }
 impl R {
-    #[doc = "Bit 0 - End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine."]
+    #[doc = "Bit 0 - End of conversion interrupt enable"]
     #[inline(always)]
     pub fn eocien(&self) -> EocienR {
         EocienR::new((self.bits & 1) != 0)
@@ -295,7 +300,7 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine."]
+    #[doc = "Bit 0 - End of conversion interrupt enable"]
     #[inline(always)]
     pub fn eocien(&mut self) -> EocienW<'_, CapieSpec> {
         EocienW::new(self, 0)

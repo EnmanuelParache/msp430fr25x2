@@ -3,6 +3,7 @@ pub type R = crate::R<Pm5ctl0Spec>;
 #[doc = "Register `PM5CTL0` writer"]
 pub type W = crate::W<Pm5ctl0Spec>;
 #[doc = "LPMx.5 Lock Bit\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Locklpm5 {
     #[doc = "0: LPMx.5 configuration is not locked and defaults to its reset condition."]
@@ -56,12 +57,13 @@ where
     }
 }
 #[doc = "Reports or sets the LPM3.5 switch connection upon the switch mode set by LPM5SM. When this bit is set, the VLPM3.5 domain can accept full-speed read and write operation by CPU MCLK. If the switch is disconnected, all peripherals within this domain can only accept the operation no more than 40 kHz. In automatic mode (LPM5SM = 0), this bit represents the switch connection between Vcore and VLPM3.5. Any write to this bit has no effect. In manual mode (LPM5SM = 1), this bit can be fully read and written by software. When this bit is set, the switch connection between Vcore and VLPM3.5 is connected. Otherwise, the switch is disconnected.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lpm5sw {
     #[doc = "0: LPMx.5 switch disconnected"]
-    Lpm5sw0 = 0,
+    Disconnected = 0,
     #[doc = "1: LPMx.5 switch connected"]
-    Lpm5sw1 = 1,
+    Connected = 1,
 }
 impl From<Lpm5sw> for bool {
     #[inline(always)]
@@ -76,19 +78,19 @@ impl Lpm5swR {
     #[inline(always)]
     pub const fn variant(&self) -> Lpm5sw {
         match self.bits {
-            false => Lpm5sw::Lpm5sw0,
-            true => Lpm5sw::Lpm5sw1,
+            false => Lpm5sw::Disconnected,
+            true => Lpm5sw::Connected,
         }
     }
     #[doc = "LPMx.5 switch disconnected"]
     #[inline(always)]
-    pub fn is_lpm5sw_0(&self) -> bool {
-        *self == Lpm5sw::Lpm5sw0
+    pub fn is_disconnected(&self) -> bool {
+        *self == Lpm5sw::Disconnected
     }
     #[doc = "LPMx.5 switch connected"]
     #[inline(always)]
-    pub fn is_lpm5sw_1(&self) -> bool {
-        *self == Lpm5sw::Lpm5sw1
+    pub fn is_connected(&self) -> bool {
+        *self == Lpm5sw::Connected
     }
 }
 #[doc = "Field `LPM5SW` writer - Reports or sets the LPM3.5 switch connection upon the switch mode set by LPM5SM. When this bit is set, the VLPM3.5 domain can accept full-speed read and write operation by CPU MCLK. If the switch is disconnected, all peripherals within this domain can only accept the operation no more than 40 kHz. In automatic mode (LPM5SM = 0), this bit represents the switch connection between Vcore and VLPM3.5. Any write to this bit has no effect. In manual mode (LPM5SM = 1), this bit can be fully read and written by software. When this bit is set, the switch connection between Vcore and VLPM3.5 is connected. Otherwise, the switch is disconnected."]
@@ -99,22 +101,23 @@ where
 {
     #[doc = "LPMx.5 switch disconnected"]
     #[inline(always)]
-    pub fn lpm5sw_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Lpm5sw::Lpm5sw0)
+    pub fn disconnected(self) -> &'a mut crate::W<REG> {
+        self.variant(Lpm5sw::Disconnected)
     }
     #[doc = "LPMx.5 switch connected"]
     #[inline(always)]
-    pub fn lpm5sw_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Lpm5sw::Lpm5sw1)
+    pub fn connected(self) -> &'a mut crate::W<REG> {
+        self.variant(Lpm5sw::Connected)
     }
 }
 #[doc = "Specifies the operation mode of the LPM3.5 switch.\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Lpm5sm {
-    #[doc = "0: Automatic mode for LPM3.5 switch that the switch is fully handled by the circuitry during mode switch."]
-    Lpm5sm0 = 0,
-    #[doc = "1: Manual mode for LPM3.5 switch that the switch is specified by LPM5SW bit setting in software."]
-    Lpm5sm1 = 1,
+    #[doc = "0: Automatic mode. The LPM3.5 switch is fully handled by the circuitry during mode switch."]
+    Automatic = 0,
+    #[doc = "1: Manual mode. The LPM3.5 switch is specified by LPM5SW bit setting in software."]
+    Manual = 1,
 }
 impl From<Lpm5sm> for bool {
     #[inline(always)]
@@ -129,19 +132,19 @@ impl Lpm5smR {
     #[inline(always)]
     pub const fn variant(&self) -> Lpm5sm {
         match self.bits {
-            false => Lpm5sm::Lpm5sm0,
-            true => Lpm5sm::Lpm5sm1,
+            false => Lpm5sm::Automatic,
+            true => Lpm5sm::Manual,
         }
     }
-    #[doc = "Automatic mode for LPM3.5 switch that the switch is fully handled by the circuitry during mode switch."]
+    #[doc = "Automatic mode. The LPM3.5 switch is fully handled by the circuitry during mode switch."]
     #[inline(always)]
-    pub fn is_lpm5sm_0(&self) -> bool {
-        *self == Lpm5sm::Lpm5sm0
+    pub fn is_automatic(&self) -> bool {
+        *self == Lpm5sm::Automatic
     }
-    #[doc = "Manual mode for LPM3.5 switch that the switch is specified by LPM5SW bit setting in software."]
+    #[doc = "Manual mode. The LPM3.5 switch is specified by LPM5SW bit setting in software."]
     #[inline(always)]
-    pub fn is_lpm5sm_1(&self) -> bool {
-        *self == Lpm5sm::Lpm5sm1
+    pub fn is_manual(&self) -> bool {
+        *self == Lpm5sm::Manual
     }
 }
 #[doc = "Field `LPM5SM` writer - Specifies the operation mode of the LPM3.5 switch."]
@@ -150,15 +153,15 @@ impl<'a, REG> Lpm5smW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "Automatic mode for LPM3.5 switch that the switch is fully handled by the circuitry during mode switch."]
+    #[doc = "Automatic mode. The LPM3.5 switch is fully handled by the circuitry during mode switch."]
     #[inline(always)]
-    pub fn lpm5sm_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Lpm5sm::Lpm5sm0)
+    pub fn automatic(self) -> &'a mut crate::W<REG> {
+        self.variant(Lpm5sm::Automatic)
     }
-    #[doc = "Manual mode for LPM3.5 switch that the switch is specified by LPM5SW bit setting in software."]
+    #[doc = "Manual mode. The LPM3.5 switch is specified by LPM5SW bit setting in software."]
     #[inline(always)]
-    pub fn lpm5sm_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Lpm5sm::Lpm5sm1)
+    pub fn manual(self) -> &'a mut crate::W<REG> {
+        self.variant(Lpm5sm::Manual)
     }
 }
 impl R {

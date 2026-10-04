@@ -2,7 +2,8 @@
 pub type R = crate::R<CapivSpec>;
 #[doc = "Register `CAPIV` writer"]
 pub type W = crate::W<CapivSpec>;
-#[doc = "Captivate Interrupt vector value. It generates an value that can be used as address offset for fast interrupt service routine handling. 000Ch to FFFEh = Reserved Read will clear highest priority interrupt. Write will clear all pending interrupts.\n\nValue on reset: 0"]
+#[doc = "Captivate interrupt vector value. Reading clears the highest priority interrupt, writing clears all pending interrupts\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
 pub enum Capiv {
@@ -29,7 +30,7 @@ impl crate::FieldSpec for Capiv {
     type Ux = u16;
 }
 impl crate::IsEnum for Capiv {}
-#[doc = "Field `CAPIV` reader - Captivate Interrupt vector value. It generates an value that can be used as address offset for fast interrupt service routine handling. 000Ch to FFFEh = Reserved Read will clear highest priority interrupt. Write will clear all pending interrupts."]
+#[doc = "Field `CAPIV` reader - Captivate interrupt vector value. Reading clears the highest priority interrupt, writing clears all pending interrupts"]
 pub type CapivR = crate::FieldReader<Capiv>;
 impl CapivR {
     #[doc = "Get enumerated values variant"]
@@ -77,7 +78,7 @@ impl CapivR {
     }
 }
 impl R {
-    #[doc = "Bits 0:15 - Captivate Interrupt vector value. It generates an value that can be used as address offset for fast interrupt service routine handling. 000Ch to FFFEh = Reserved Read will clear highest priority interrupt. Write will clear all pending interrupts."]
+    #[doc = "Bits 0:15 - Captivate interrupt vector value. Reading clears the highest priority interrupt, writing clears all pending interrupts"]
     #[inline(always)]
     pub fn capiv(&self) -> CapivR {
         CapivR::new(self.bits)

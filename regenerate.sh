@@ -2,7 +2,7 @@
 # svd files generated using msp430_svd:
 # cargo run -- msp430fr2522
 
-svd2rust --reexport-interrupt --atomics -g --target=msp430 -i msp430fr2522.svd
+svd2rust --reexport-interrupt --atomics -g --impl-defmt defmt --target=msp430 -i msp430fr2522.svd
 
 rm -rf src/
 

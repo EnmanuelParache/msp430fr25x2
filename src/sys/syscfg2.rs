@@ -3,6 +3,7 @@ pub type R = crate::R<Syscfg2Spec>;
 #[doc = "Register `SYSCFG2` writer"]
 pub type W = crate::W<Syscfg2Spec>;
 #[doc = "ADC input A0 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl0 {
     #[doc = "0: ADC input A0 disabled"]
@@ -56,6 +57,7 @@ where
     }
 }
 #[doc = "ADC input A1 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl1 {
     #[doc = "0: ADC input A1 disabled"]
@@ -109,6 +111,7 @@ where
     }
 }
 #[doc = "ADC input A2 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl2 {
     #[doc = "0: ADC input A2 disabled"]
@@ -162,6 +165,7 @@ where
     }
 }
 #[doc = "ADC input A3 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl3 {
     #[doc = "0: ADC input A3 disabled"]
@@ -215,6 +219,7 @@ where
     }
 }
 #[doc = "ADC input A4 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl4 {
     #[doc = "0: ADC input A4 disabled"]
@@ -268,6 +273,7 @@ where
     }
 }
 #[doc = "ADC input A5 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl5 {
     #[doc = "0: ADC input A5 disabled"]
@@ -321,6 +327,7 @@ where
     }
 }
 #[doc = "ADC input A6 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl6 {
     #[doc = "0: ADC input A6 disabled"]
@@ -374,6 +381,7 @@ where
     }
 }
 #[doc = "ADC input A7 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl7 {
     #[doc = "0: ADC input A7 disabled"]
@@ -427,6 +435,7 @@ where
     }
 }
 #[doc = "ADC input A8 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl8 {
     #[doc = "0: ADC input A8 disabled"]
@@ -480,6 +489,7 @@ where
     }
 }
 #[doc = "ADC input A9 pin select\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Adcpctl9 {
     #[doc = "0: ADC input A9 disabled"]
@@ -533,6 +543,7 @@ where
     }
 }
 #[doc = "RTC clock selection\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Rtccksel {
     #[doc = "0: SMCLK is selected"]
@@ -586,56 +597,57 @@ where
     }
 }
 #[doc = "eUSCIB Remapping source selection , please refer to device specific for details\n\nValue on reset: 0"]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Uscibrmp {
-    #[doc = "0: P1.x is selected, please refer to device specific for details"]
-    Uscibrmp0 = 0,
-    #[doc = "1: other port is selected, please refer to device specific for details"]
-    Uscibrmp1 = 1,
+pub enum Uscib0rmp {
+    #[doc = "0: Default function. See the device-specific data sheet for details."]
+    Uscib0rmp0 = 0,
+    #[doc = "1: Remapped function. See the device-specific data sheet for details."]
+    Uscib0rmp1 = 1,
 }
-impl From<Uscibrmp> for bool {
+impl From<Uscib0rmp> for bool {
     #[inline(always)]
-    fn from(variant: Uscibrmp) -> Self {
+    fn from(variant: Uscib0rmp) -> Self {
         variant as u8 != 0
     }
 }
-#[doc = "Field `USCIBRMP` reader - eUSCIB Remapping source selection , please refer to device specific for details"]
-pub type UscibrmpR = crate::BitReader<Uscibrmp>;
-impl UscibrmpR {
+#[doc = "Field `USCIB0RMP` reader - eUSCIB Remapping source selection , please refer to device specific for details"]
+pub type Uscib0rmpR = crate::BitReader<Uscib0rmp>;
+impl Uscib0rmpR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Uscibrmp {
+    pub const fn variant(&self) -> Uscib0rmp {
         match self.bits {
-            false => Uscibrmp::Uscibrmp0,
-            true => Uscibrmp::Uscibrmp1,
+            false => Uscib0rmp::Uscib0rmp0,
+            true => Uscib0rmp::Uscib0rmp1,
         }
     }
-    #[doc = "P1.x is selected, please refer to device specific for details"]
+    #[doc = "Default function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn is_uscibrmp_0(&self) -> bool {
-        *self == Uscibrmp::Uscibrmp0
+    pub fn is_uscib0rmp_0(&self) -> bool {
+        *self == Uscib0rmp::Uscib0rmp0
     }
-    #[doc = "other port is selected, please refer to device specific for details"]
+    #[doc = "Remapped function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn is_uscibrmp_1(&self) -> bool {
-        *self == Uscibrmp::Uscibrmp1
+    pub fn is_uscib0rmp_1(&self) -> bool {
+        *self == Uscib0rmp::Uscib0rmp1
     }
 }
-#[doc = "Field `USCIBRMP` writer - eUSCIB Remapping source selection , please refer to device specific for details"]
-pub type UscibrmpW<'a, REG> = crate::BitWriter<'a, REG, Uscibrmp>;
-impl<'a, REG> UscibrmpW<'a, REG>
+#[doc = "Field `USCIB0RMP` writer - eUSCIB Remapping source selection , please refer to device specific for details"]
+pub type Uscib0rmpW<'a, REG> = crate::BitWriter<'a, REG, Uscib0rmp>;
+impl<'a, REG> Uscib0rmpW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
 {
-    #[doc = "P1.x is selected, please refer to device specific for details"]
+    #[doc = "Default function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn uscibrmp_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Uscibrmp::Uscibrmp0)
+    pub fn uscib0rmp_0(self) -> &'a mut crate::W<REG> {
+        self.variant(Uscib0rmp::Uscib0rmp0)
     }
-    #[doc = "other port is selected, please refer to device specific for details"]
+    #[doc = "Remapped function. See the device-specific data sheet for details."]
     #[inline(always)]
-    pub fn uscibrmp_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Uscibrmp::Uscibrmp1)
+    pub fn uscib0rmp_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Uscib0rmp::Uscib0rmp1)
     }
 }
 impl R {
@@ -696,8 +708,8 @@ impl R {
     }
     #[doc = "Bit 11 - eUSCIB Remapping source selection , please refer to device specific for details"]
     #[inline(always)]
-    pub fn uscibrmp(&self) -> UscibrmpR {
-        UscibrmpR::new(((self.bits >> 11) & 1) != 0)
+    pub fn uscib0rmp(&self) -> Uscib0rmpR {
+        Uscib0rmpR::new(((self.bits >> 11) & 1) != 0)
     }
 }
 impl W {
@@ -758,8 +770,8 @@ impl W {
     }
     #[doc = "Bit 11 - eUSCIB Remapping source selection , please refer to device specific for details"]
     #[inline(always)]
-    pub fn uscibrmp(&mut self) -> UscibrmpW<'_, Syscfg2Spec> {
-        UscibrmpW::new(self, 11)
+    pub fn uscib0rmp(&mut self) -> Uscib0rmpW<'_, Syscfg2Spec> {
+        Uscib0rmpW::new(self, 11)
     }
 }
 #[doc = "System Configuration Register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`syscfg2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`syscfg2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
